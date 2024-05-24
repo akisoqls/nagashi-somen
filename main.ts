@@ -68,7 +68,7 @@ app.get("/", (context: Context) => {
       <html lang="en">
       <head>
         <meta charset="UTF-8">
-        <title>Somen Streaming Service</title>
+        <title>"Nagashi Somen" - The world's first Somen Streaming Service</title>
         <style>
           *{
             margin: 0;
