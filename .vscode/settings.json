@@ -3,5 +3,7 @@
     "Somen",
     "somens"
   ],
-  "deno.enable": true
+  "deno.enable": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "denoland.vscode-deno"
 }
