@@ -1,5 +1,10 @@
 {
   "tasks": {
     "dev": "deno run -A --watch main.ts"
+  },
+  "fmt": {
+    "useTabs": false,
+    "indentWidth": 2,
+    "semiColons": true
   }
 }
