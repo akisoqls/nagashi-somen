@@ -1,7 +1,7 @@
 import { html } from "https://deno.land/x/hono@v4.3.9/helper/html/index.ts";
 import { Context } from "https://deno.land/x/hono@v4.3.9/mod.ts";
 
-export const index = (context: Context, bamboo: string) => {
+export const indexHtml = (context: Context, bamboo: string) => {
   return html`
 <!DOCTYPE html>
 <html lang="en">
