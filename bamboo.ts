@@ -18,7 +18,7 @@ export const bamboo: streamingSomenTemplate[] = [
   {template: "        \\|                  \\\\  /| |  ", somenArea:[18, 10], replacement: "▞"},
   {template: "         \\\\                 || / | |  ", somenArea:[17, 11], replacement: "▞"},
   {template: "          \\'､               /|/  | |  ", somenArea:[15, 12], replacement: "▞"},
-  {template: "          |'､\\_____________//\"   | |  ", somenArea:[14, 13], replacement: "▞"},
+  {template: "          |;､\\_____________//\"   | |  ", somenArea:[14, 13], replacement: "▞"},
   {template: "          |||¯¯¯¯¯¯¯¯¯¯¯¯¯¯\"     | |   ", somenArea:[14, 13], replacement: "❚"},
   {template: "          |||  _                 | |  ", somenArea:[14, 13], replacement: "❚"},
   {template: "          ||| //                /| |  ", somenArea:[14, 13], replacement: "❚"},
@@ -33,7 +33,7 @@ export const bamboo: streamingSomenTemplate[] = [
   {template: "     //                //     /       ", somenArea:[14, 9], replacement: "❚"},
   {template: "    //                //     /        ", somenArea:[14, 8], replacement: "❚"},
   {template: "   //                //     /         ", somenArea:[14, 7], replacement: "❚"},
-  {template: "  //                // o   /          ", somenArea:[13, 7], replacement: "▞"},
-  {template: " //                // ooo /           ", somenArea:[12, 7], replacement: "▞"},
+  {template: "  //                // 0   /          ", somenArea:[13, 7], replacement: "▞"},
+  {template: " //                // 000 /           ", somenArea:[12, 7], replacement: "▞"},
   {template: "//                //  | |/            ", somenArea:[11, 7], replacement: "▞"},
 ];
