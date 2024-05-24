@@ -3,12 +3,12 @@ type charAt = number;
 type areaWidth = number;
 type somenArea = [charAt, areaWidth];
 type streamingSomenTemplate = {
-  template: AA,
-  somenArea: somenArea,
-  replacement: string
+  template: AA;
+  somenArea: somenArea;
+  replacement: string;
 };
 
-
+// deno-fmt-ignore
 export const bamboo: streamingSomenTemplate[] = [
   {template: "            //                //  0  /", somenArea:[23, 7], replacement: "▞"},
   {template: "           //                //  000/ ", somenArea:[22, 7], replacement: "▞"},

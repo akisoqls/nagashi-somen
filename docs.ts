@@ -125,5 +125,5 @@ export const indexHtml = (context: Context, bamboo: string) => {
     })
   </script>
 </body>
-</html>`
-}
+</html>`;
+};
