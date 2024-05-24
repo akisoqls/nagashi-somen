@@ -160,7 +160,7 @@ app.get("/", (context: Context) => {
           <pre>${bambooString}</pre>
           <div>
             <h1>Somen Streaming Service<br />"Nagashi Somen"</h1>
-            <p>Use this <code>curl</code> command to access somen stream:</p>
+            <p>Use this <code>curl</code> command in your terminal to access somen stream:</p>
             <div class="copy_text">
               <span>
                 <input type="text" readonly value="curl ${context.req.raw.url}">
