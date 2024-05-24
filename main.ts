@@ -126,6 +126,7 @@ app.get("/", (context: Context) => {
           
           div.copy_text > span{
             border: 1px solid #000;
+            border-radius: 4px;
             padding: 0px 16px;
             background: #fdfdfd;
             width: 100%;
