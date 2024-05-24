@@ -76,7 +76,7 @@ app.get("/", (context: Context) => {
           }
 
           body{
-            padding: 60px 20px 0 20px;
+            padding: 60px 0;
           }
 
           main{
