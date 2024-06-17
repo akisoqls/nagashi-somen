@@ -1,8 +1,5 @@
-import { html } from "https://deno.land/x/hono@v4.3.9/helper/html/index.ts";
-import { Context } from "https://deno.land/x/hono@v4.3.9/mod.ts";
-
-export const indexHtml = (context: Context, bamboo: string) => {
-  return html`
+export const indexHtml = (request: Request, bamboo: string) => {
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,7 +100,7 @@ export const indexHtml = (context: Context, bamboo: string) => {
       <p>Use this <code>curl</code> command in your terminal to access somen stream:</p>
       <div class="copy_text">
         <span>
-          <input type="text" readonly value="curl ${context.req.raw.url}">
+          <input type="text" readonly value="curl ${request.url}">
           <button onclick="copy()">copy</button>
         </span>
       </div>

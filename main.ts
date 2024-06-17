@@ -1,9 +1,6 @@
-import { type Context, Hono } from "https://deno.land/x/hono@v4.3.9/mod.ts";
 import { bamboo } from "./bamboo.ts";
 import { indexHtml } from "./docs.ts";
 import { generateSomenAA, generateStreamingSomen } from "./somen.ts";
-
-const app = new Hono();
 
 const bambooString = bamboo.map((b) => b.template).join("\n");
 console.log(bambooString);
@@ -14,8 +11,36 @@ const sleep = (milliSeconds = 0) => {
   });
 };
 
-app.get("/", (context: Context) => {
-  context.res.headers.append("Content-Type", "text/html");
+const port = 3000;
+Deno.serve({ port }, (request: Request) => {
+  const url = new URL(request.url);
+
+  if (url.pathname !== "/") {
+    const response = new Response(
+      "Not Found",
+      {
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        status: 404,
+      },
+    );
+    return response;
+  }
+
+  const userAgent = request.headers.get("user-agent") || "";
+
+  if (!userAgent.includes("curl")) {
+    const response = new Response(
+      indexHtml(request, bambooString),
+      {
+        headers: {
+          "Content-Type": "text/html",
+        },
+      },
+    );
+    return response;
+  }
 
   let somens = generateStreamingSomen({
     banbooLength: bamboo.length,
@@ -24,12 +49,6 @@ app.get("/", (context: Context) => {
       return Math.max(width, maximum);
     }, 0),
   });
-
-  const userAgent = context.req.header("User-Agent") || "";
-
-  if (!userAgent.includes("curl")) {
-    return context.html(indexHtml(context, bambooString));
-  }
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
@@ -56,6 +75,3 @@ app.get("/", (context: Context) => {
     },
   });
 });
-
-const port = 3000;
-Deno.serve({ port }, app.fetch);
