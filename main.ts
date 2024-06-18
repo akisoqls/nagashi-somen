@@ -48,6 +48,7 @@ Deno.serve({ port }, (request: Request) => {
       const [_, width] = current.somenArea;
       return Math.max(width, maximum);
     }, 0),
+    somenLength: 30,
   });
 
   const encoder = new TextEncoder();
@@ -56,7 +57,10 @@ Deno.serve({ port }, (request: Request) => {
       (async () => {
         try {
           while (true) {
-            somens = generateStreamingSomen({ streamingSomen: somens });
+            somens = generateStreamingSomen({
+              streamingSomen: somens,
+              somenLength: 30,
+            });
             const string = generateSomenAA(somens);
             controller.enqueue(encoder.encode(string));
             await sleep(100);
