@@ -28,7 +28,7 @@ export const bamboo: streamingSomenTemplate[] = [
   {template: "          //      '､________//    0/  ", somenArea: [14, 13], replacement: "❚"},
   {template: "        ／/                / |    /   ", somenArea:[13, 13], replacement: "❚"},
   {template: "       | /                //／   /    ", somenArea:[14, 12], replacement: "❚"},
-  {template: "       //                //      |    ", somenArea:[14, 11], replacement: "❚"},
+  {template: "       //                //    ヽ|    ", somenArea:[14, 11], replacement: "❚"},
   {template: "      //                //     _ノ    ", somenArea:[14, 10], replacement: "❚"},
   {template: "     //                //     /       ", somenArea:[14, 9], replacement: "❚"},
   {template: "    //                //     /        ", somenArea:[14, 8], replacement: "❚"},
