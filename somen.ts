@@ -1,12 +1,17 @@
 import { cursorTo } from "https://deno.land/x/cliffy@v1.0.0-rc.4/ansi/ansi_escapes.ts";
+import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.4/ansi/colors.ts";
 import { bamboo } from "./bamboo.ts";
 
+type SomenColor = 82 | 219; // #8EFC4D | #F2B1F9
 type somen = {
   isSomen: true;
   position: number;
+  color?: SomenColor;
 } | {
   isSomen: false;
 };
+
+const backgroundColor = 22; // #275D16
 
 export const generateStreamingSomen = (
   {
@@ -39,12 +44,17 @@ export const generateStreamingSomen = (
           currentSomen = {
             isSomen,
             position: prevSomen.position + 1,
+            color: prevSomen.color,
           };
           return currentSomen;
         } else {
+          const isWithColor = Math.random() < 0.06;
           return {
             isSomen,
             position: 0,
+            ...(
+              isWithColor ? { color: getSomenColor() } : {}
+            ),
           };
         }
       } else {
@@ -102,7 +112,10 @@ export const generateSomenAA = (
     const convertBooleanToSomen = somenToUse.map((targetSomen, charAt) => {
       const { isSomen: isExistsSomen } = targetSomen;
       if (isExistsSomen) {
-        return aaLineTemplate.replacement;
+        const { color } = targetSomen;
+        return color
+          ? colors.rgb8(aaLineTemplate.replacement, color)
+          : aaLineTemplate.replacement;
       } else {
         return template.at(somenStart + charAt);
       }
@@ -113,8 +126,14 @@ export const generateSomenAA = (
       template.slice(somenStart + somenWidth);
     string += somenOnBambooAA;
     string += "\n";
+    string = colors.brightWhite(string);
 
     index++;
   }
+  string = colors.bgRgb8(string, backgroundColor);
   return string;
+};
+
+const getSomenColor = (): SomenColor => {
+  return Math.floor(Math.random() * 2) ? 219 : 82;
 };
