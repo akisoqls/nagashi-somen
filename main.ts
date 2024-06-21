@@ -1,3 +1,4 @@
+import { UserAgent } from "https://deno.land/std@0.224.0/http/user_agent.ts";
 import { bamboo } from "./bamboo.ts";
 import { indexHtml } from "./docs.ts";
 import { generateSomenAA, generateStreamingSomen } from "./somen.ts";
@@ -41,9 +42,11 @@ Deno.serve({ port }, async (request: Request) => {
     );
     return response;
   }
-  const userAgent = request.headers.get("user-agent") || "";
 
-  if (!userAgent.includes("curl")) {
+  const userAgentString = request.headers.get("user-agent") || "";
+  const userAgent = new UserAgent(userAgentString);
+
+  if (!userAgent.ua.includes("curl")) {
     const response = new Response(
       await indexHtml(request, bambooString),
       {
