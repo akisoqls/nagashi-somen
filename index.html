@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/assets/nagashi-somen-logo_128w.ico">
+  <meta property="og:description" content="Nagashi Somen stream somen using {{{ protocol }}}.">
+  <meta property="og:title" content="&quot;Nagashi Somen&quot; - Somen Streaming Service">
+  <meta property="og:image" content="{{{ origin }}}/assets/nagashi-somen-ogimage.png">
+  <meta property="og:url" content="{{{ origin }}}">
+  <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <title>"Nagashi Somen" - Somen Streaming Service</title>
+  <style>
+    * {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8em;
+    }
+
+    code {
+      font-family: Menlo, Monaco, 'Courier New', monospace;
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border: 1px solid #3f4467;
+      border-radius: 4px;
+      font-size: 0.875em;
+    }
+
+    pre {
+      font-family: Menlo, Monaco, 'Courier New', monospace;
+      font-size: 12px;
+    }
+
+    body {
+      padding: 60px 0;
+    }
+
+    header {
+      margin: 0 0 2em 0;
+    }
+      
+    header>h1 {
+      text-align: center;
+      margin: 1em 0 0 0;
+      line-height: 1.6em;
+    }
+
+    main {
+      margin: 2em auto 0 auto;
+      width: 700px;
+    }
+
+    main>p#description{
+      font-size: 20px;
+    }
+
+    code#bamboo_aa {
+      background: #275D16;
+      color: #ffffff;
+      width: auto;
+      display: block;
+      width: fit-content;
+      border-radius: 4px;
+      box-shadow: 0 0 20px DarkSlateGray;
+      padding: 8px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    code#bamboo_aa>pre {
+      font-size: min(20px, 1.8vw);
+    }
+
+    section.guide {
+      margin: 2em 0 0 0;
+      padding: 0 1.6em;
+      position: relative;
+    }
+
+    section.guide>input[type=radio] {
+      display: none;
+    }
+
+    section.guide>input[type=radio]+h3>label {
+      color: #777;
+      cursor: pointer;
+      margin: 0 0 0.5em 0;
+      display: block;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 1.6em;
+      user-select: none;
+    }
+
+    section.guide>input[type=radio]+h3>label::before {
+      content: "▶︎ ";
+      position: absolute;
+      left: 0;
+      font-size: 14px;
+    }
+
+    section.guide>input[type=radio]+h3>label:hover,
+    section.guide>input[type=radio]:checked+h3>label {
+      color: #000;
+    }
+
+    section.guide>input[type=radio]:checked+h3>label::before {
+      content: "▼ ";
+    }
+
+    section.guide>input[type=radio]+h3+div {
+      display: none;
+    }
+
+    section.guide>input[type=radio]:checked+h3+div {
+      display: block;
+      width: 100%;
+      margin: 0em 0 2.4em 0;
+    }
+
+    div.copy_text {
+      margin: 1em 0;
+      width: 100%;
+    }
+
+    div.copy_text>span {
+      border: 1px solid #000;
+      border-radius: 4px;
+      padding: 0px 16px 0 8px;
+      background: #fdfdfd;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    input {
+      display: block;
+      all: unset;
+      font-family: Menlo, Monaco, 'Courier New', monospace;
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    input::selection {
+      background-color: #275D1666;
+    }
+
+    button {
+      display: block;
+      all: unset;
+      font-size: 18px;
+      border-left: 1px solid #000;
+      padding: 6px 0px 6px 16px;
+      background: #fdfdfd;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 40px 20px 40px 20px;
+      }
+
+      main {
+        width: auto;
+        margin: 1.6em 0;
+      }
+
+      header{
+        margin: 0 0 1em 0;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      pre {
+        font-size: 12px;
+      }
+
+      main>p#description{
+        font-size: 16px;
+      }
+
+      section.guide {
+        margin: 2em 0 0 0;
+        padding: 0 1em;
+        position: relative;
+      }
+
+      section.guide>input[type=radio]+h3>label {
+        margin: 0 0 0.5em 0;
+        font-size: 16px;
+      }
+
+      section.guide>input[type=radio]+h3>label::before {
+        font-size: 10px;
+      }
+
+      section.guide>input[type=radio]:checked+h3+div {
+        margin: 0em 0 1.6em 0;
+      }
+
+      div.copy_text {
+        margin: 0.5em 0;
+      }
+
+      input {
+        font-size: 12px;
+      }
+
+      button {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <code id="bamboo_aa">
+      <pre>{{{ bamboo }}}</pre>
+    </code>
+    <h1>"Nagashi Somen"<br />Somen Streaming Service</h1>
+  </header>
+  <main>
+    <p id="description">"Nagashi Somen" is a service for streaming somen. The somen is in the {{{ protocol }}} stream. You can enjoy a stream of somen anywhere using <code>curl</code> command. To access Nagashi Somen stream, see following document.</p>
+    <section class="guide">
+      <input type="hidden" value="{{{ userAgentOs }}}" name="os">
+      <input type="radio" name="os" id="macOS">
+      <h3><label for="macOS">For macOS</label></h3>
+      <div>
+        <p>Use this <code>curl</code> command in <b>Terminal</b> or your favorite terminal app to access Nagashi Somen
+          stream:</p>
+        <div class="copy_text">
+          <span>
+            <input id="macos_cmd" type="text" readonly value="curl {{{ requestUrl }}}">
+            <button data-target="macos_cmd">copy</button>
+          </span>
+        </div>
+      </div>
+      <input type="radio" name="os" id="Windows">
+      <h3><label for="Windows">For Windows</label></h3>
+      <div>
+        <p>Use this <code>curl.exe</code> command in <b>WindowsPowerShell</b> or your favorite terminal app to access
+          Nagashi Somen stream:</p>
+        <div class="copy_text">
+          <span>
+            <input id="windows_cmd" type="text" readonly value="curl.exe {{{ requestUrl }}}">
+            <button data-target="windows_cmd">copy</button>
+          </span>
+        </div>
+      </div>
+      <input type="radio" name="os" id="Linux">
+      <h3><label for="Linux">For Linux</label></h3>
+      <div>
+        <p>Use this <code>curl</code> command in <b>Terminal</b> or your favorite terminal app to access Nagashi Somen
+          stream:</p>
+        <div class="copy_text">
+          <span>
+            <input id="linux_cmd" type="text" readonly value="curl {{{ requestUrl }}}">
+            <button data-target="linux_cmd">copy</button>
+          </span>
+        </div>
+      </div>
+      <input type="radio" name="os" id="iOS">
+      <h3><label for="iOS">For iOS or iPad OS</label></h3>
+      <div>
+        <p>To access the stream from iOS or iPadOS, you need an app that can use shell. Use "iSH Shell" (<a
+            href="https://apps.apple.com/jp/app/ish-shell/id1436902243" target="_blank" rel="noopener noopener">App
+            Store</a>) or your favorite app/shell environment that can use <code>curl</code> command. Open the app and
+          use this <code>curl</code> command:</p>
+        <div class="copy_text">
+          <span>
+            <input id="ios_cmd" type="text" readonly value="curl {{{ requestUrl }}}">
+            <button data-target="ios_cmd">copy</button>
+          </span>
+        </div>
+      </div>
+      <input type="radio" name="os" id="Android">
+      <h3><label for="Android">For Android</label></h3>
+      <div>
+        <p>To access the stream from Android, you need an app that can use shell. Use "Termux" (<a
+            href="https://play.google.com/store/apps/details?id=com.termux" target="_blank"
+            rel="noopener noopener">Google Play Store</a>) or your favorite app/shell environment that can use
+          <code>curl</code> command. Open the app and use this <code>curl</code> command:
+        </p>
+        <div class="copy_text">
+          <span>
+            <input id="Android_cmd_2" type="text" readonly value="curl {{{ requestUrl }}}">
+            <button data-target="Android_cmd_2">copy</button>
+          </span>
+        </div>
+        <p>If <code>curl</code> is not installed in "Termux", run the following command: </p>
+        <div class="copy_text">
+          <span>
+            <input id="Android_cmd" type="text" readonly value="pkg install curl">
+            <button data-target="Android_cmd">copy</button>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+
+  </footer>
+
+  <script>
+    document.querySelector("#macOS").checked = true;
+    let os = document.querySelector("input[type=\"hidden\"][name=\"os\"]").value;
+    os = os === "macOS" && "ontouchend" in document
+      ? "iOS"
+      : os;
+    os = os === "unknown"
+      ? "macOS"
+      : os;
+    if (document.querySelector("#" + os)) {
+      document.querySelector("#" + os).checked = true;
+    }
+
+    const copy = (targetInput) => {
+      targetInput.select();
+      document.execCommand("copy");
+    }
+
+    document.querySelectorAll("div.copy_text").forEach(el => {
+      el.querySelector("button").addEventListener("click", e => {
+        copy(document.querySelector("#" + e.target.getAttribute("data-target")));
+        e.target.innerText = "copied"
+        setTimeout(() => {
+          e.target.innerText = "copy"
+        }, 2000);
+      })
+    })
+  </script>
+</body>
+
+</html>

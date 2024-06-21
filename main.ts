@@ -1,6 +1,7 @@
 import { bamboo } from "./bamboo.ts";
 import { indexHtml } from "./docs.ts";
 import { generateSomenAA, generateStreamingSomen } from "./somen.ts";
+import { serveDir } from "https://deno.land/std@0.224.0/http/file_server.ts";
 
 const bambooString = bamboo.map((b) => b.template).join("\n");
 console.log(bambooString);
@@ -12,10 +13,23 @@ const sleep = (milliSeconds = 0) => {
 };
 
 const port = 3000;
-Deno.serve({ port }, (request: Request) => {
+Deno.serve({ port }, async (request: Request) => {
   const url = new URL(request.url);
 
   if (url.pathname !== "/") {
+    if (url.pathname == "/index.html") {
+      const response = Response.redirect(
+        url.href.replace("/index.html", ""),
+        302,
+      );
+      return response;
+    }
+    if (url.pathname.startsWith("/assets")) {
+      return serveDir(request, {
+        fsRoot: "./public",
+        quiet: true,
+      });
+    }
     const response = new Response(
       "Not Found",
       {
@@ -27,12 +41,11 @@ Deno.serve({ port }, (request: Request) => {
     );
     return response;
   }
-
   const userAgent = request.headers.get("user-agent") || "";
 
   if (!userAgent.includes("curl")) {
     const response = new Response(
-      indexHtml(request, bambooString),
+      await indexHtml(request, bambooString),
       {
         headers: {
           "Content-Type": "text/html",
