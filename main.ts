@@ -74,7 +74,8 @@ Deno.serve({ port }, async (request: Request) => {
               streamingSomen: somens,
               somenLength: 30,
             });
-            const string = generateSomenAA(somens);
+            let string = generateSomenAA(somens);
+            string += "<Control + C>: Stop Stream";
             controller.enqueue(encoder.encode(string));
             await sleep(100);
           }
