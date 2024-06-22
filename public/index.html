@@ -299,6 +299,13 @@
             <button data-target="ios_cmd">copy</button>
           </span>
         </div>
+        <p>If <code>curl</code> is not installed in "iSH Shell", run the following command: </p>
+        <div class="copy_text">
+          <span>
+            <input id="install_curl_cmd_for_ios" type="text" readonly value="apk add curl">
+            <button data-target="install_curl_cmd_for_ios">copy</button>
+          </span>
+        </div>
       </div>
       <input type="radio" name="os" id="Android">
       <h3><label for="Android">For Android</label></h3>
@@ -310,15 +317,15 @@
         </p>
         <div class="copy_text">
           <span>
-            <input id="Android_cmd_2" type="text" readonly value="curl {{{ requestUrl }}}">
-            <button data-target="Android_cmd_2">copy</button>
+            <input id="android_cmd" type="text" readonly value="curl {{{ requestUrl }}}">
+            <button data-target="android_cmd">copy</button>
           </span>
         </div>
         <p>If <code>curl</code> is not installed in "Termux", run the following command: </p>
         <div class="copy_text">
           <span>
-            <input id="Android_cmd" type="text" readonly value="pkg install curl">
-            <button data-target="Android_cmd">copy</button>
+            <input id="install_curl_cmd_for_android" type="text" readonly value="pkg install curl">
+            <button data-target="install_curl_cmd_for_android">copy</button>
           </span>
         </div>
       </div>

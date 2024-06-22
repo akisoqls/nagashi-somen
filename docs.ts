@@ -14,7 +14,7 @@ export const indexHtml = async (request: Request, bamboo: string) => {
       .toLocaleUpperCase(),
     origin: new URL(request.url).origin,
   };
-  const html = await createHtmlDocuments("./index.html", replacements);
+  const html = await createHtmlDocuments("./public/index.html", replacements);
 
   return html;
 };
